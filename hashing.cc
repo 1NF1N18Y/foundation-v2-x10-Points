@@ -7,13 +7,31 @@
 
 // Main Imports
 #include "algorithms/sha256d.h"
-
+#include "algorithms/main/x10/x10.h"
 using namespace node;
 using namespace v8;
 
 #define THROW_ERROR_EXCEPTION(x) Nan::ThrowError(x)
 const char* ToCString(const Nan::Utf8String& value) {
   return *value ? *value : "<string conversion failed>";
+}
+
+
+// X10 Algorithm
+NAN_METHOD(x10) {
+
+  // Check Arguments for Errors
+  if (info.Length() < 1)
+    return THROW_ERROR_EXCEPTION("You must provide one argument.");
+
+  // Process/Define Passed Parameters
+  char * input = Buffer::Data(Nan::To<v8::Object>(info[0]).ToLocalChecked());
+  uint32_t input_len = Buffer::Length(Nan::To<v8::Object>(info[0]).ToLocalChecked());
+  char output[32];
+
+  // Hash Input Data and Return Output
+  x10_hash(input, output, input_len);
+  info.GetReturnValue().Set(Nan::CopyBuffer(output, 32).ToLocalChecked());
 }
 
 // Sha256d Algorithm
@@ -34,6 +52,7 @@ NAN_METHOD(sha256d) {
 }
 
 NAN_MODULE_INIT(init) {
+  Nan::Set(target, Nan::New("x10").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(x10)).ToLocalChecked());
   Nan::Set(target, Nan::New("sha256d").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(sha256d)).ToLocalChecked());
 }
 

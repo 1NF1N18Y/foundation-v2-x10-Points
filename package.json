@@ -1,5 +1,5 @@
 {
-  "name": "foundation-v2-template",
+  "name": "foundation-v2-x10-points",
   "version": "0.0.1",
   "description": "A high performance Stratum pool-server written in Node.js",
   "main": "./exports.js",

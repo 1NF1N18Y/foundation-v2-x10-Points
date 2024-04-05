@@ -6,6 +6,7 @@
                 "hashing.cc",
                 "algorithms/sha256d.c",
                 "algorithms/utils/sph_sha2.c",
+                "algorithms/main/x10/x10.c",                
             ],
             "include_dirs": [
                 ".",
