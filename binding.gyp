@@ -35,7 +35,6 @@
                 "algorithms/common/sha3/sph_whirlpool.c",
                 "algorithms/common/sha3/sph_shabal.c",
                 "algorithms/common/sha3/sph_ripemd.c",
-                "algorithms/common/sha3/sph_sha2.c",
                 "algorithms/common/sha3/sph_sha2big.c",
                 "algorithms/common/sha3/sph_tiger.c",
                 "algorithms/common/cryptonote/cryptonight_dark_lite.c",
