@@ -8,6 +8,7 @@
 // Main Imports
 #include "algorithms/sha256d/sha256d.h"
 #include "algorithms/x10/x10.h"
+
 using namespace node;
 using namespace v8;
 
@@ -15,7 +16,6 @@ using namespace v8;
 const char* ToCString(const Nan::Utf8String& value) {
   return *value ? *value : "<string conversion failed>";
 }
-
 
 // X10 Algorithm
 NAN_METHOD(x10) {
