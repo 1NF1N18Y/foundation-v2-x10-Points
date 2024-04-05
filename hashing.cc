@@ -6,8 +6,8 @@
 #include "nan.h"
 
 // Main Imports
-#include "algorithms/sha256d.h"
-#include "algorithms/x10.h"
+#include "algorithms/sha256d/sha256d.h"
+#include "algorithms/x10/x10.h"
 using namespace node;
 using namespace v8;
 
